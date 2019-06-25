@@ -11,7 +11,7 @@ You will need to change the **server** address in both *server.py* and *client.p
 
 # Run in Gitpod
 
-You can also run Online Rock Paper Scissors in Gitpod, a free online dev environment for GitHub:
+You can also run Network Game Tutorial in Gitpod, a free online dev environment for GitHub:
 
 If you're intersted in a paid subscription with GitPod use the coupon code: **TECHWITHTIM2FQBMX**
 
