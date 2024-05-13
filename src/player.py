@@ -1,28 +1,33 @@
 import pygame
 
 class Player():
-    width = height = 50
+    def __init__(self):
+        self.correct_chars = set()
+        self.wrong_chars = set()
+        self.ready = False
+        self.finished = False
 
-    def __init__(self, startx, starty, color=(255,0,0)):
-        self.x = startx
-        self.y = starty
-        self.velocity = 2
-        self.color = color
+    def set_ready(self, isReady):
+        self.ready = isReady
 
-    def draw(self, g):
-        pygame.draw.rect(g, self.color ,(self.x, self.y, self.width, self.height), 0)
+    def get_ready(self):
+        return self.ready
 
-    def move(self, dirn):
-        """
-        :param dirn: 0 - 3 (right, left, up, down)
-        :return: None
-        """
+    def get_finished(self):
+        return self.finished
+    
+    def set_finished(self, finished):
+        self.guesses = finished
+    
+    def add_correct(self, char):
+        self.correct_chars.add(char)
 
-        if dirn == 0:
-            self.x += self.velocity
-        elif dirn == 1:
-            self.x -= self.velocity
-        elif dirn == 2:
-            self.y -= self.velocity
-        else:
-            self.y += self.velocity
+    def get_correct(self):
+        return len(self.correct_chars)
+
+    def get_wrong(self):
+        return len(self.wrong_chars)
+
+    def __str__(self):
+        return f"Ready: {self.get_ready()} | Finished: {self.get_finished()} | Correct: {self.get_correct()} | Wrong: {self.get_wrong()}"
+    

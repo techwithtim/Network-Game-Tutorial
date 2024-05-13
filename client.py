@@ -10,5 +10,3 @@ if __name__ == "__main__":
     # Start State if Not All Players Are Connected
     g = Game(500, 500, sys.argv[1], int(sys.argv[2]))
     g.run()
-    g.game_state.change_state(GameState())
-    g.run()

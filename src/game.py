@@ -1,36 +1,45 @@
 import pygame
+import pickle
+from .hangman import *
 from src.network import Network
 from src.player import Player
 from src.canvas import Canvas
 from src.game_states import *
 from src.state_manager import StateManager
+from src.request import Request
+
 
 class Game:
     def __init__(self, w, h, host, port):
         self.net = Network(host, port)
         self.width = w
         self.height = h
-        self.player = Player(50, 50)
-        self.player2 = Player(100,100)
+        self.player = Player()
+        self.opponent = Player()
         self.canvas = Canvas(self.width, self.height, "Guess Word")
+        self.hangman = Hangman(self.canvas)
         self.game_state = StateManager(StartState())
-        
+
     def run(self):
         self.game_state.run(self)
 
     def send_data(self):
         """
-        Send position to server
-        :return: None
+        Send game state to server
+        :return: str
         """
-        data = str(self.net.id) + ":" + str(self.player.x) + "," + str(self.player.y)
+        request = Request(self.net.id, self.player)
+        data = pickle.dumps(request)
         reply = self.net.send(data)
         return reply
 
     @staticmethod
-    def parse_data(data):
+    def load_data(data) -> Request:
+        """
+        :param data: str
+        :return: Request
+        """
         try:
-            d = data.split(":")[1].split(",")
-            return int(d[0]), int(d[1])
+            return pickle.loads(data)
         except:
-            return 0,0
+            pass
