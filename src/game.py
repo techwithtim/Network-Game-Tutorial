@@ -14,7 +14,7 @@ class Game:
         self.player2 = Player(100,100)
         self.canvas = Canvas(self.width, self.height, "Guess Word")
         self.game_state = StateManager(StartState())
-
+        
     def run(self):
         self.game_state.run(self)
 

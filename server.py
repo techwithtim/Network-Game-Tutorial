@@ -16,7 +16,6 @@ try:
 except socket.error as e:
     print(str(e))
 s.listen(2)
-
 while count_client != 2:
     print(f"Waiting for {2-count_client} connection")
     conn, addr = s.accept()

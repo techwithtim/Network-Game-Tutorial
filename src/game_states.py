@@ -1,4 +1,5 @@
 import pygame
+from src.hangman import Hangman
 
 class StartState():
     def run(self, entity):
@@ -10,6 +11,7 @@ class StartState():
                 if event.type in (pygame.QUIT, pygame.K_ESCAPE):
                     run = False
             entity.canvas.draw_background()
+            Hangman.prehangman(entity.canvas.get_canvas())
             message="waiting for opponent"
             entity.canvas.draw_text(message, 20, entity.width/2 -len(message)*2.5, entity.height/2)
             entity.canvas.update()
