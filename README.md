@@ -9,15 +9,6 @@ To run the game you will need to run an instane of *server.py* on one machine. T
 
 You will need to change the **server** address in both *server.py* and *network.py* to be the IPV4 address of your machine or the server ips you'll be using.
 
-# Run in Gitpod
-
-You can also run Network Game Tutorial in Gitpod, a free online dev environment for GitHub:
-
-If you're intersted in a paid subscription with GitPod use the coupon code: **TECHWITHTIM19**
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/techwithtim/Network-Game-Tutorial/blob/master/run.py)
-
-
 # 💻 Launch Your Software Development Career Today!  
 
 🎓 **No degree? No problem!** My program equips you with everything you need to break into tech and land an entry-level software development role.  
